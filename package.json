@@ -1,0 +1,19 @@
+{
+  "name": "finciero-transaction",
+  "version": "1.0.0",
+  "description": "Bank transaction model for Finciero",
+  "main": "transaction.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Finciero/finciero-transaction.git"
+  },
+  "author": "Rafael Vidaurre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finciero/finciero-transaction/issues"
+  },
+  "homepage": "https://github.com/Finciero/finciero-transaction"
+}

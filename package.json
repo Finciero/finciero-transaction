@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Finciero/finciero-transaction",
   "dependencies": {
-    "validator": "^3.30.0"
+    "validator": "2.0.0"
   }
 }

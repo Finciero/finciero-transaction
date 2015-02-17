@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Finciero/finciero-transaction/issues"
   },
-  "homepage": "https://github.com/Finciero/finciero-transaction"
+  "homepage": "https://github.com/Finciero/finciero-transaction",
+  "dependencies": {
+    "validator": "^3.30.0"
+  }
 }

@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Finciero/finciero-transaction",
   "dependencies": {
+    "lodash": "^3.8.0",
     "validator": "2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0"
   }
 }

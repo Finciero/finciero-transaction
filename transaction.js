@@ -134,6 +134,10 @@ isValidSerial = function (isValidSerial) {
  *
  */
 function Transaction (transactionObj) {
+  if (typeof transactionObj === 'undefined') {
+    return this;
+  }
+
   checkKeys(transactionObj);
   this.date(transactionObj.date);
   this.kind(transactionObj.kind || 'normal');

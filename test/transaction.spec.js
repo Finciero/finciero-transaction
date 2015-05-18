@@ -30,5 +30,21 @@ describe('Module Transaction', function () {
       };
       assert.doesNotThrow(fn, Error);
     });
+
+    it ('should set all property of a new instance and does not throw', function () {
+      var fn = function () {
+        var t = new Transaction();
+
+        t.date('01/06/2014');
+        t.kind('normal');
+        t.balance(0);
+        t.charge(15000);
+        t.deposit(0);
+        t.description('Giro cajero automatico');
+
+        t.build();
+      };
+      assert.doesNotThrow(fn, Error);
+    });
   });
 });

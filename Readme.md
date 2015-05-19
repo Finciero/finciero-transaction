@@ -40,7 +40,7 @@ argument was passed or not.
 
 **Date**
 Date can be passed as a formatted string.
-Onli in format *dd/mm/yyyy* where day and month are allowed to be prefixed by a *0*
+Only in format *dd/mm/yyyy* where day and month are allowed to be prefixed by a *0*
 
 Set:
 
@@ -54,17 +54,17 @@ Get:
     t.date(); // Returns a string formatted as *dd/mm/yyyy* and prefixes day and month with a *0* when necessary
 ---
 **Kind**
-Type must be a string and must be in the list of valid types (default is "normal")
+Kind must be a string and must be in the list of valid types (default is "normal")
 
 Set:
 
-    t.type("normal"); // Valid
-    t.type("due"); // Valid
-    t.type("snoop dog") // Invalid
+    t.kind("normal"); // Valid
+    t.kind("due"); // Valid
+    t.kind("snoop dog") // Invalid
 
 Get:
 
-    t.type()
+    t.kind()
 ---
 **Balance, charge and deposit**
 Balance, charge and deposit must be a valid number, greater or equal to 0.
@@ -77,13 +77,13 @@ Set:
     t.charge(-1000) // Invalid
     t.deposit(10000) // Valid
     t.deposit(-1000) // Invalid
-    
+
 Get:
 
 	t.balance()
 	t.charge()
-	t.deposit()	
----	
+	t.deposit()
+---
 **Description**
 Description must be a valid string and not empty.
 
@@ -94,7 +94,7 @@ Set:
 Get:
 
 	t.description()
----	
+---
 **Extended description**
 Extended description must be a valid string and can be empty.
 
@@ -124,13 +124,13 @@ Get:
 Interest must be a number, greater or equal than 0.
 
 Set:
-	
+
 	t.intersestRate(0.1)
-	
+
 Get:
 
 	t.interestRate()
----	
+---
 **Serial**
 Serial must be a valid string, can be empty
 
@@ -139,8 +139,8 @@ Set:
 	t.serial('00023124412')
 
 Get:
-	
-	t.serial()	
+
+	t.serial()
 ---
 Also we can pass an object directly to the new instance:
 

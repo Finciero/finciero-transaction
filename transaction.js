@@ -15,7 +15,7 @@ VALID_KEYS = ['date', 'kind', 'balance', 'charge', 'deposit', 'description', 'ex
 // Private methods
 /**
  * Validates that the input string is a valid date formatted as "mm/dd/yyyy"
- * @param  {String}  dateString String with dare to check.
+ * @param  {String}  dateString String with date to check.
  * @return {Boolean}            checked date
  * Extrated from
  * @url http://stackoverflow.com/questions/6177975/how-to-validate-date-with-format-mm-dd-yyyy-in-javascript

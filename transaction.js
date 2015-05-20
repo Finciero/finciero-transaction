@@ -92,21 +92,20 @@ isValidKind = function (kind) {
 
 isValidBalance = function (balance) {
   check(balance, 'Balance is not set').notNull().notEmpty();
-  check(balance, 'Balance is not a number').isNumeric();
-  check(balance, 'Balance most be a positive number').min(0);
+  check(balance, 'Balance is not a valid number').isFloat();
   return true;
 };
 
 isValidCharge = function (charge) {
   check(charge, 'Charge is not set').notNull().notEmpty();
-  check(charge, 'Charge is not a number').isNumeric();
+  check(charge, 'Charge is not a valid number').isFloat();
   check(charge, 'Charge most be a positive number').min(0);
   return true;
 };
 
 isValidDeposit = function (deposit) {
   check(deposit, 'Deposit is not set').notNull().notEmpty();
-  check(deposit, 'Deposit is not a number').isNumeric();
+  check(deposit, 'Deposit is not a number').isFloat();
   check(deposit, 'Deposit most be a positive number').min(0);
   return true;
 };
@@ -286,7 +285,7 @@ Transaction.prototype.build = function () {
       'current': currentDue,
       'total': totalDues
     },
-    'interestRate': interestRate,
+    'interest_rate': interestRate,
     'serial': serial,
     'usd': usd
   };

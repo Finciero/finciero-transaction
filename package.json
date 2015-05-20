@@ -1,6 +1,6 @@
 {
   "name": "finciero-transaction",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Bank transaction model for Finciero",
   "main": "transaction.js",
   "scripts": {

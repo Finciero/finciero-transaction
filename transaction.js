@@ -31,8 +31,8 @@ isValidDate = function (dateString) {
 
   // Parse the date parts to integers
   parts = dateString.split('/');
-  day = parseInt(parts[1], 10);
-  month = parseInt(parts[0], 10);
+  day = parseInt(parts[0], 10);
+  month = parseInt(parts[1], 10);
   year = parseInt(parts[2], 10);
 
   // Check the ranges of month and year

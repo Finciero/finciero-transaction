@@ -20,7 +20,6 @@ MOCKUP = {
     'deposit': 0,
     'description': 'Giro cajero automatico',
     'usd': 25.0
-
   }
 };
 
@@ -39,6 +38,7 @@ describe('Module Transaction', function () {
       var trans = new Transaction(MOCKUP.usd);
       trans.build();
     });
+
     it ('should set all property of a new instance and does not throw', function () {
       var t = new Transaction();
 

@@ -281,7 +281,7 @@ Transaction.prototype.build = function () {
     'charge': charge,
     'deposit': deposit,
     'description': description,
-    'extendedDescription': extendedDescription,
+    'extended_description': extendedDescription,
     'dues': {
       'current': currentDue,
       'total': totalDues

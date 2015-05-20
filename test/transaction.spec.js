@@ -17,34 +17,25 @@ MOCKUP = {
 describe('Module Transaction', function () {
   describe('Set object', function () {
     it ('Should have valid keys.', function () {
-      var fn = function () {
-        var trans = new Transaction(MOCKUP.good);
-      };
-      assert.doesNotThrow(fn, Error);
+      var trans = new Transaction(MOCKUP.good);
     });
 
     it ('Should be built.', function () {
-      var fn = function () {
-        var trans = new Transaction(MOCKUP.good);
-        trans.build();
-      };
-      assert.doesNotThrow(fn, Error);
+      var trans = new Transaction(MOCKUP.good);
+      trans.build();
     });
 
     it ('should set all property of a new instance and does not throw', function () {
-      var fn = function () {
-        var t = new Transaction();
+      var t = new Transaction();
 
-        t.date('01/06/2014');
-        t.kind('normal');
-        t.balance(0);
-        t.charge(15000);
-        t.deposit(0);
-        t.description('Giro cajero automatico');
+      t.date('01/06/2014');
+      t.kind('normal');
+      t.balance(0);
+      t.charge(15000);
+      t.deposit(0);
+      t.description('Giro cajero automatico');
 
-        t.build();
-      };
-      assert.doesNotThrow(fn, Error);
+      t.build();
     });
   });
 });

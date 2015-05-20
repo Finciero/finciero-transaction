@@ -2,7 +2,7 @@
 
 var TRANSACTION_TYPES, VALID_KEYS, check, _, isValidDate, checkDues, checkKeys, isValidKind,
   isValidBalance, isValidCharge, isValidDeposit, isValidDescription, isValidExtendedDescription,
-  isValidInterestRate, isValidSerial;
+  isValidInterestRate, isValidSerial, isValidUsd;
 
 check = require('validator').check;
 _ = require('lodash');
@@ -10,7 +10,7 @@ _ = require('lodash');
 TRANSACTION_TYPES = ['normal', 'due_cash', 'due_commerce', 'due_fixed', 'due_advance',
   'total_due'];
 VALID_KEYS = ['date', 'kind', 'balance', 'charge', 'deposit', 'description', 'extendedDescription',
-  'serial', 'dues'];
+  'serial', 'dues', 'usd'];
 
 // Private methods
 /**
@@ -108,6 +108,13 @@ isValidDeposit = function (deposit) {
   check(deposit, 'Deposit is not set').notNull().notEmpty();
   check(deposit, 'Deposit is not a number').isNumeric();
   check(deposit, 'Deposit most be a positive number').min(0);
+  return true;
+};
+
+isValidUsd = function (usd) {
+  check(usd, 'USD is not set').notNull().notEmpty();
+  check(usd, 'USD is not a valid float').isFloat();
+  check(usd, 'USD most be a positive number').min(0);
   return true;
 };
 
@@ -240,9 +247,17 @@ Transaction.prototype.serial = function (serial) {
   return this._serial;
 };
 
+Transaction.prototype.usd = function (usd) {
+  if (typeof usd !== 'undefined') {
+    isValidUsd(usd);
+    this._usd = parseFloat(usd);
+  }
+  return parseFloat(this._usd);
+};
+
 Transaction.prototype.build = function () {
   var date, kind, balance, charge, deposit, description, extendedDescription, dues, currentDue,
-    totalDues, interestRate, serial;
+    totalDues, interestRate, serial, usd;
 
   date = this.date();
   kind = this.kind();
@@ -256,6 +271,7 @@ Transaction.prototype.build = function () {
   totalDues = dues.total;
   interestRate = this.interestRate();
   serial = this.serial();
+  usd = this.usd();
 
   return {
     'date': date,
@@ -270,7 +286,8 @@ Transaction.prototype.build = function () {
       'total': totalDues
     },
     'interestRate': interestRate,
-    'serial': serial
+    'serial': serial,
+    'usd': usd
   };
 };
 

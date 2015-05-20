@@ -161,6 +161,7 @@ function Transaction (transactionObj) {
 
   this.interestRate(transactionObj.interestRate || 0);
   this.serial(transactionObj.serial || '');
+  this.usd(transactionObj.usd || 0);
 }
 
 Transaction.prototype.date = function (date) {

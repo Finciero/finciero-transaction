@@ -283,9 +283,9 @@ Transaction.prototype.build = function () {
     'extended_description': extendedDescription,
     'dues': {
       'current': currentDue,
-      'total': totalDues
+      'total': totalDues,
+      'interest_rate': interestRate
     },
-    'interest_rate': interestRate,
     'serial': serial,
     'usd': usd
   };

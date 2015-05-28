@@ -30,7 +30,8 @@ Example of valid transactions object.
         'total': 1
     },
     'interestRate': 0,
-    'serial': ''
+    'serial': '',
+    'usd': 0
 }
 ```
 Setters & getters
@@ -142,6 +143,17 @@ Get:
 
 	t.serial()
 ---
+**Usd**
+Serial must be a valid string, can be empty
+
+Set:
+
+	t.usd('15.44')
+
+Get:
+
+	t.usd()
+---
 Also we can pass an object directly to the new instance:
 
 ```javascript
@@ -167,3 +179,36 @@ with the `build` method.
     t.build(); // Returns {description: 'Foo', 'date': '01/01/2001' ... }
 
 This method creates a new object if no exception has been triggered
+
+Transactions object MUST contain
+------------------------
+
+```javascript
+{
+    'date': '...',
+    'description': '...',
+    'charge': '...',
+    'balance': '...',
+    'deposit': '...',
+    'kind': : '...'
+}
+```
+
+Optional values:
+
+```javascript
+{
+    'extendedDescription': '...', // defaul value ''
+    'serial': '...', // defaul value ''
+    'dues': {
+        'current': '...', // defaul value 1
+        'total': '...', // defaul value 1
+    },
+    'interest_rate': '...' // defaul value 0
+    'usd': '...' // defaul value 0
+}
+```
+
+#### Troubles?
+
+[Report issues](https://github.com/Finciero/finciero-transaction/issues)

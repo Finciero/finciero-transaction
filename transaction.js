@@ -84,9 +84,12 @@ isValidKind = function (kind) {
   var noType = _.includes(TRANSACTION_TYPES, kind);
   check(kind, 'Kind is not set').notNull().notEmpty();
   if (!noType) {
-    throw new Error('Invalid account type.');
+    throw new Error('Invalid transaction kind.');
   }
 
+  if (typeof kind === 'undefined') {
+   throw new Error('Kind cannot be undefined');
+  }
   return this;
 };
 
@@ -146,7 +149,7 @@ function Transaction (transactionObj) {
 
   checkKeys(transactionObj);
   this.date(transactionObj.date);
-  this.kind(transactionObj.kind || 'normal');
+  this.kind(transactionObj.kind);
   this.balance(transactionObj.balance);
   this.charge(transactionObj.charge);
   this.deposit(transactionObj.deposit);
@@ -172,11 +175,11 @@ Transaction.prototype.date = function (date) {
 };
 
 Transaction.prototype.kind = function (kind) {
-  if (typeof kind !== 'undefined') {
-    isValidKind(kind);
-    this._kind = kind;
+  if (typeof kind === 'undefined') {
+    isValidKind(this._kind);
+    return this._kind;
   }
-  return this._kind;
+  return this._kind = kind;
 };
 
 Transaction.prototype.balance = function (balance) {

@@ -29,6 +29,14 @@ MOCKUP = {
     'deposit': 0,
     'description': 'Giro cajero automatico',
     'usd': 25.0
+  },
+  'noKind': {
+    'date': '01/06/2014',
+    'balance': -1240,
+    'charge': 15000.5,
+    'deposit': 0,
+    'description': 'Giro cajero automatico',
+    'usd': 25.0
   }
 };
 
@@ -52,6 +60,15 @@ describe('Module Transaction', function () {
       var trans = new Transaction(MOCKUP.decimal);
       trans.build();
     });
+
+    it ('Should throw if kind is not set.', function () {
+      var fn = function () {
+        var trans = new Transaction(MOCKUP.noKind);
+        trans.build();
+      };
+      assert.throws(fn, Error, 'Kind is not set');
+    });
+
     it ('should set all property of a new instance and does not throw', function () {
       var t = new Transaction();
 
